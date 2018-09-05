@@ -1,41 +1,61 @@
 require 'rest-client'
 require 'json'
+require 'htmlentities'
+
+	@end_game = false
 
 def get_questions
-	questions_raw = RestClient.get("https://opentdb.com/api.php?amount=50&type=multiple")
+	questions_raw = RestClient.get("https://opentdb.com/api.php?amount=50&difficulty=easy&type=multiple")
 	JSON.parse(questions_raw)['results']
 end
 
 def run_game
-    questions_array = Array.new(get_questions)
-    score_count = 0
-    round = 1
-    
-while questions_array.length > 0
-	current_question = get_question(questions_array)
-	answer_choices = get_answers(current_question)     
+	questions_array = Array.new(get_questions)
+	scores = ["0", "$100", "$200", "$300", "$500", "$1,000", "$2,000", "$4,000", "$8,000", "$16,000", "$32,000", "$64,000", "$125,000", "$250,000", "$500,000", "$1,000,000"]
+	round = 1
+	i = 0
 
-	play(round, current_question, answer_choices)
+	while questions_array.length > 40
+		# system "clear"
+		current_question = get_question(questions_array)
+		answer_choices = get_answers(current_question)     
 
-	user_input = gets.chomp 
+		play(round, current_question, answer_choices, scores)
 
-	round += 1
+		user_input = gets.chomp.downcase 
 
-	if user_input.downcase == 'exit' || user_input.downcase == 'quit' || user_input.downcase == 'stop' || user_input.downcase == 'leave'
-    	puts "Okay, goodbye!"
-    	return
+		round = round + 1
+
+		if user_input.downcase == 'exit' || user_input.downcase == 'quit' || user_input.downcase == 'stop' || user_input.downcase == 'leave'
+			puts "Okay, goodbye!"
+			return
+		end
+
+		correct_answer = current_question['correct_answer']
+
+		if user_input == correct_answer.downcase
+			sleep(2)
+			puts "\nThat's correct!"
+			i += 1
+			# Should not be a global variable, bad practice but for a quick fix it was done
+			score = scores[i] 
+			$game_over_score = scores[i]
+			sleep(2)
+			puts "\nYour current score is #{score}!"
+
+		else
+			sleep(0.5)
+			puts "\nThat's incorrect"
+			sleep(1)
+			puts "\nYour current balance is #{score}!"
+		end
+		questions_array.delete(current_question)
+
+		if questions_array.length == 40
+			game_over
+			puts "You collected #{$game_over_score}!"
+		end
 	end
-
-	correct_answer = current_question['correct_answer']
-
-	if user_input == correct_answer.downcase
-    	puts "Correct!"
-    	score_count = score_count + 1
-    	puts "Your current score is #{score_count}!"
-	else
-    	puts "Incorrect"
-	end
-end
 end
 
 def get_question(questions)
@@ -49,14 +69,19 @@ def get_answers(question)
     choices.insert(i, question['correct_answer'])
 end
 
-def play(round, question, answers)
-    puts "#{round}. #{question['question']}"
-    answers.each { |answer| puts "- #{answer}" }
+def play(round, question, answers, scores)
+	sleep(4)
+	system "clear"
+	puts HTMLEntities.new.decode("The category is: #{question['category']}")
+    puts HTMLEntities.new.decode("\n#{round}. #{question['question']}")
+    answers.each { |answer| puts HTMLEntities.new.decode("- #{answer}") }
 end
 
-def delete_question(questions, question)
-    questions.delete(question)
+def game_over
+	@end_game = true
+	puts "\nGame Over!"
 end
+
 
 
 
