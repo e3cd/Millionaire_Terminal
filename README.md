@@ -37,6 +37,10 @@ Implemented TDD (Test Driven Development)
 
 ![Flow](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-05%20at%202.02.22%20pm.png)
 
+### User Flow Diagram:
+
+![User Flow](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Untitled%20Diagram.jpg)
+
 ## Inital Design & Rationale
 
 ### Initial Design:
