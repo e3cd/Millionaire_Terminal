@@ -18,7 +18,64 @@ Implemented TDD (Test Driven Development)
 
 ## Planning 
 
+### Brainstorming:
+![brainstorming](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-05%20at%202.20.22%20pm.png)
 
+### First Trello Board:
+
+![First Board](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-04%20at%209.27.12%20am.png)
+
+### Second Trello Board:
+
+![Second Board](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-05%20at%202.52.27%20pm.png)
+
+### User Story Board:
+
+![User Stories](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-05%20at%202.50.25%20pm.png)
+
+## Inital Design & Rationale
+
+### Initial Design:
+
+Defining key features that we as a team had come up with, further breaking them down into smaller, more manageable problems. 
+
+Determined the features, and the processes behind each feature to ultimately produce the MVP.
+
+![alt text](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-04%20at%2011.34.48%20am.png)
+![second part](https://github.com/e3cd/Millionaire_Terminal/blob/master/screenshots/Screen%20Shot%202018-09-04%20at%2011.34.58%20am.png)
+    
+
+### Rationale: 
+
+What had changed during the development process:
+
+During the development of the program it became evident that we were not going to be able to implement all the features that we set to be in the MVP.
+
+This was then dealt with by making the decision to forgo the feature in the MVP. 
+
+Future developments were then included in the Readme.md 
+
+### Why certain features were not implemented:
+
+Soundtrack, sounds associated with actions
+    
+    Unable to find adequate gem, time constraints
+      
+Prize threshold amount
+    
+    Unable to call the class and its methods which provided the thresholds
+    
+Add lifelines
+
+    Not considered part of MVP, feature was to be implemented later
+
+Take money option
+
+    Not considered part of MVP, feature was to be implemented later
+      
+Timer - Increase duration of timer after meeting prize threshold
+
+    Not considered part of MVP, feature was to be implemented later. Inadequate gem 
 
 ## Built With
 
