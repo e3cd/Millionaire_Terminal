@@ -40,9 +40,11 @@ def run_game
 			sleep(1)
 			puts "\nYour current score is #{score}!"
 		else
-			sleep(0.5)
+			sleep(1)
 			puts "\nThat's incorrect"
 			score = scores[i] 
+			sleep(1)
+			puts "\nThe correct answer was #{correct_answer}"
 			sleep(1)
 			puts "\nYour current balance is #{score}!"
 		end
@@ -68,7 +70,7 @@ def get_answers(question)
 end
 
 def play(round, question, answers, scores)
-	sleep(2.5)
+	sleep(3)
 	system "clear"
 	puts HTMLEntities.new.decode("The category is: #{question['category']}")
     puts HTMLEntities.new.decode("\n#{round}. #{question['question']}")

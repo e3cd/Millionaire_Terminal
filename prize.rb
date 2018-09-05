@@ -15,12 +15,12 @@ class Prize
     end
 
     def get_threshold
-        if @question => 10
+        if @question >= 10
             @threshold_value = "$32,000"
     elsif @question >= 5
       @threshold_value = "$1,000"
     else 
       @threshold_value = "$0"
     end
-    return @threshold_value
-  end
+    @threshold_value
+end
