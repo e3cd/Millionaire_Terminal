@@ -108,6 +108,9 @@ When the game is first initialized in retrieves that information from the http a
 Doing this would change most of the code, however, it would be beneficial as stated above
 This would allow for offline play of the game
 
+## Possible Outcomes & Broader Impact
+
+It may offend people due insesitive questions as well as effecting other people around the area.
 
 ## Authors 
 
